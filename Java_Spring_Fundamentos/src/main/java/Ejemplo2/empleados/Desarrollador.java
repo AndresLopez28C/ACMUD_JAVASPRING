@@ -1,15 +1,17 @@
 package Ejemplo2.empleados;
 import Ejemplo2.informes.Informe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-
+@Scope("prototype")
 public class Desarrollador implements Empleado{
     private Informe informe;
 
     @Autowired
-    public Desarrollador(Informe informe){
+    public Desarrollador(@Qualifier("informeActividades") Informe informe){
         this.informe = informe;
     }
     @Override

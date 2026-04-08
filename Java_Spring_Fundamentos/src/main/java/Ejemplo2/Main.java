@@ -27,5 +27,12 @@ public class Main {
         Empleado Desarrollador = context.getBean(Desarrollador.class);
         System.out.println(Desarrollador.getTareas());
         System.out.println(Desarrollador.getInforme());
+
+        Empleado Desarrollador2 = context.getBean(Desarrollador.class);
+        if (Desarrollador == Desarrollador2){
+            System.out.println("Los objetos son iguales (Singleton)");
+        }else{
+            System.out.println("Los objetos son diferentes (Prototype)");
+        }
     }
 }
