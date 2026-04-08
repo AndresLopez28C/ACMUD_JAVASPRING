@@ -1,4 +1,4 @@
-package com.acm.alertas;
+package Ejercicio1.alertas;
 
 public class AlertaCritica implements Alerta{
     @Override
