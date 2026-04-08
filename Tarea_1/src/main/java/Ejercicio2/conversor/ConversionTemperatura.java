@@ -7,6 +7,6 @@ public class ConversionTemperatura implements Conversor{
     @Override
     public float conversion(int temperatura)
     {
-        return temperatura * (9/5) + 32;
+        return (float) ((temperatura * 1.8) + 32);
     }
 }
