@@ -13,7 +13,7 @@ public class CategoriaService {
     }
 
     public Categoria crearCategoria(Categoria categoria){
-        return categoriaRepository.save(categoria)
+        return categoriaRepository.save(categoria);
     }
 
 }

@@ -17,7 +17,7 @@ public class CategoriaControler {
     public CategoriaControler(CategoriaService categoriaService){
         this.categoriaService = categoriaService;
     }
-    @PostMapping("create-categoria")
+    @PostMapping("/create-categoria")
     public ResponseEntity<Categoria> saveCategoria(@RequestBody Categoria categoria){
         Categoria categoriaGuardada  = categoriaService.crearCategoria(categoria);
         return ResponseEntity.ok(categoriaGuardada);
