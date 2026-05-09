@@ -6,20 +6,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Entity
-@Table(name = "producto")
+@Table(name = "categoria")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Producto {
+public class Categoria {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "categoria_id")
     private Integer id;
     private String nombre;
-    private String descripcion;
     private String slug;
+    private String descripcion;
+    @Column(name = "esta_activo")
     private Boolean estaActivo;
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
 
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    List<Producto> productos;
 }
