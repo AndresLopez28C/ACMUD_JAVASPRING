@@ -13,6 +13,7 @@ import java.util.List;
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reserva_id")
     private Integer id;
     private String fechaInicio;
     private String fechaFin;
@@ -20,4 +21,11 @@ public class Reserva {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "habitacion_id")
+    private Habitacion habitacion;
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    List<Servicios> servicio;
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    List<Pago> pagos;
 }
