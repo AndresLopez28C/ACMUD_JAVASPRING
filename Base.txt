@@ -1,0 +1,107 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Cliente {
+  id integer [primary key]
+  nombre varchar
+  email varchar
+  telefono varchar
+  direccion varchar 
+
+}
+
+Table Empleado{
+  id integer [primary key]
+  nombre varchar 
+  idhotel integer
+  idjefe integer
+  cargo varchar
+  correo varchar
+  telefono varchar
+  direccion varchar
+  salario integer
+}
+
+Table administradores{
+  id integer [primary key]
+  nombre varchar 
+  correo varchar
+  email varchar
+  telefono varchar
+  hotelref integer
+}
+
+Table hotel {
+  idhotel integer [primary key]
+  direccion varchar
+  ciudad varchar
+  telefono varchar 
+  correo varchar 
+  categoria varchar
+  estado vachar
+}
+
+Table Habitacion {
+  id integer [primary key]
+  Tipo varchar
+  Capacidad integer
+  precio integer
+  disponibilidad integer
+  estado varchar
+  piso varchar
+  idhotel integer
+}
+
+Table reserva{
+  id integer [primary key]
+  clienteid integer
+  habitacionid integer
+  fechainicio date
+  fechafin date
+ 
+}
+
+Table pago{
+  id integer [Primary key]
+  idreserva integer
+  idfactura integer
+  valor integer
+  tipoPago varchar
+  fechapago date
+  estado varchar
+
+}
+
+Table factura{
+  id integer [primary key]
+  historial varchar
+  descuento integer
+  montototal integer
+}
+Table Servicios{
+  id integer [primary key]
+  tipoServicio varchar
+  idreserva integer
+  precioServicio integer
+  cantidadServicio integer
+
+}
+
+
+
+
+Ref: "Empleado"."idhotel"> "hotel"."idhotel"
+
+Ref : "Cliente"."id" < "reserva"."clienteid"
+
+Ref : "Habitacion"."id" < "reserva"."habitacionid"
+
+Ref: "hotel"."idhotel" < "Habitacion"."idhotel"
+
+Ref: "reserva"."id" < "pago"."idreserva"
+
+Ref: "pago"."idfactura" > "factura"."id"
+
+Ref: "administradores"."hotelref" - "hotel"."idhotel"
+Ref: "Servicios"."idreserva" > "reserva"."id"
+Ref: "Empleado"."idjefe" - "administradores"."id"
