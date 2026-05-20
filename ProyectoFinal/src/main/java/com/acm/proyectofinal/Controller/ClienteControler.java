@@ -30,7 +30,7 @@ public class ClienteControler {
         }
     }
 
-    @PostMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<Cliente> deleteById(@PathVariable int id) {
         Cliente clienteEliminado = clienteService.deleteById(id);
         if (clienteEliminado != null) {
