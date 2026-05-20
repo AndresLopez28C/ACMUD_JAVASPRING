@@ -15,7 +15,7 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pago_id")
-    private Integer id;
+    private Integer pagoId;
     private Integer valor;
     private String tipo;
     private String fecha;

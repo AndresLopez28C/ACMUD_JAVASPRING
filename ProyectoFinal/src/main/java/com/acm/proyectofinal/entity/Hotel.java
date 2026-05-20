@@ -14,7 +14,7 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "hotel_id")
-    private Integer id;
+    private Integer hotelId;
     private String direccion;
     private String ciudad;
     private String telefono;

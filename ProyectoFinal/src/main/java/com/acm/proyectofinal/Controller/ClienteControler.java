@@ -1,13 +1,10 @@
 package com.acm.proyectofinal.Controller;
 
-import com.acm.proyectofinal.repository.ClienteService;
+import com.acm.proyectofinal.service.ClienteService;
 import com.acm.proyectofinal.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/cliente")
@@ -22,4 +19,31 @@ public class ClienteControler {
         Cliente clienteGuardado  = clienteService.crearCliente(cliente);
         return ResponseEntity.ok(clienteGuardado);
     }
+
+    @GetMapping("/findbyId/{id}")
+    public ResponseEntity<Cliente> findById(@PathVariable int id) {
+        Cliente clienteEncontrado = clienteService.findById(id);
+        if (clienteEncontrado != null) {
+            return ResponseEntity.ok(clienteEncontrado);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/deleteById/{id}")
+    public ResponseEntity<Cliente> deleteById(@PathVariable int id) {
+        Cliente clienteEliminado = clienteService.deleteById(id);
+        if (clienteEliminado != null) {
+            return ResponseEntity.ok(clienteEliminado);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/update-cliente")
+    public ResponseEntity<Cliente> updateCategoria(@RequestBody Cliente cliente) {
+        Cliente clienteActualizado = clienteService.updateCliente(cliente);
+        return ResponseEntity.ok(clienteActualizado);
+    }
+
 }

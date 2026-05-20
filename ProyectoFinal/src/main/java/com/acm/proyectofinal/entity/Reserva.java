@@ -14,7 +14,7 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reserva_id")
-    private Integer id;
+    private Integer reservaId;
     private String fechaInicio;
     private String fechaFin;
 

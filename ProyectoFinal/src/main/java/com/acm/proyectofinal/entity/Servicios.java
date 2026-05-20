@@ -16,7 +16,7 @@ public class Servicios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "servicio_id")
-    private Integer id;
+    private Integer servicioId;
     private String tipo;
     private Integer precio;
     private Integer cantidad;

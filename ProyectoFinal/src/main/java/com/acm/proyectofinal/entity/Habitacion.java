@@ -14,7 +14,7 @@ public class Habitacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "habitacion_id")
-    private Integer id;
+    private Integer habitacionId;
     private String tipo;
     private Integer capacidad;
     private Integer precio;

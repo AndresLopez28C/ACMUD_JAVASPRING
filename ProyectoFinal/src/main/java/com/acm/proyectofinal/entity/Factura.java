@@ -15,7 +15,7 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "factura_id")
-    private Integer id;
+    private Integer facturaId;
     private String historial;
     private Integer descuento;
     private Integer MontoTotal;

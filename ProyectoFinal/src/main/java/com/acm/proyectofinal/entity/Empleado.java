@@ -14,7 +14,8 @@ import java.util.List;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "empleado_id")
+    private Integer empleadoId;
     private  String nombre;
     private String correo;
     private String email;
