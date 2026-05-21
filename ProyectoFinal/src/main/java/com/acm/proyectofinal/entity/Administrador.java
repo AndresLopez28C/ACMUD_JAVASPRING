@@ -18,7 +18,6 @@ public class Administrador {
     private Integer administradorId;
     private  String nombre;
     private String correo;
-    private String email;
     private String telefono;
     @ManyToOne
     @JoinColumn(name = "hotel_id")

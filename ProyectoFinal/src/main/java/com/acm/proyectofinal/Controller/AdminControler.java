@@ -41,7 +41,7 @@ public class AdminControler {
     }
 
     @PutMapping("/update-administrador")
-    public ResponseEntity<Administrador> updateCategoria(@RequestBody Administrador administrador) {
+    public ResponseEntity<Administrador> updateAdministrador(@RequestBody Administrador administrador) {
         Administrador administradorActualizado = adminService.updateAdministrador(administrador);
         return ResponseEntity.ok(administradorActualizado);
     }

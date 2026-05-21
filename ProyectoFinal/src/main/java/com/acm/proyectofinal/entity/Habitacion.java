@@ -21,8 +21,9 @@ public class Habitacion {
     private Boolean disponibilidad;
     private String estado;
     private String piso;
-    @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
-    List<Reserva> reservas;
+    @ManyToOne
+    @JoinColumn(name = "reserva_id")
+    private Reserva reserva;
     @ManyToOne
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;

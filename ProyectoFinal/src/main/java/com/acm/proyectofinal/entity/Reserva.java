@@ -17,15 +17,21 @@ public class Reserva {
     private Integer reservaId;
     private String fechaInicio;
     private String fechaFin;
+    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    @ManyToOne
-    @JoinColumn(name = "habitacion_id")
-    private Habitacion habitacion;
+
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
-    List<Servicios> servicio;
+    List<Habitacion> habitaciones;
+
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    List<Puente> puentes;
+
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
     List<Pago> pagos;
+
+
+
 }

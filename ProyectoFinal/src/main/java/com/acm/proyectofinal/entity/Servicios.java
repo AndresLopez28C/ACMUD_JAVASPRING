@@ -20,8 +20,7 @@ public class Servicios {
     private String tipo;
     private Integer precio;
     private Integer cantidad;
-    @ManyToOne
-    @JoinColumn(name = "reserva_id")
-    private Reserva reserva;
+    @OneToMany(mappedBy = "servicios", cascade = CascadeType.ALL)
+    List<Puente> puentes;
 
 }

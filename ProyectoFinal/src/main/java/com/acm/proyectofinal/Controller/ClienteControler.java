@@ -41,7 +41,7 @@ public class ClienteControler {
     }
 
     @PutMapping("/update-cliente")
-    public ResponseEntity<Cliente> updateCategoria(@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> updateCliente(@RequestBody Cliente cliente) {
         Cliente clienteActualizado = clienteService.updateCliente(cliente);
         return ResponseEntity.ok(clienteActualizado);
     }

@@ -1,5 +1,4 @@
 package com.acm.proyectofinal.entity;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,18 +6,20 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 @Entity
-@Table(name = "factura")
+@Table(name = "puente")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Factura {
+public class Puente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "factura_id")
-    private Integer facturaId;
-    private String historial;
-    private Integer descuento;
-    private Integer MontoTotal;
-    @OneToOne(mappedBy = "factura")
-    private Pago pago;
+    @Column(name = "puente_id")
+    private Integer puenteId;
+    @ManyToOne
+    @JoinColumn(name = "reserva_id")
+    private Reserva reserva;
+    @ManyToOne
+    @JoinColumn(name = "servicio_id")
+    private Servicios servicios;
+
 }

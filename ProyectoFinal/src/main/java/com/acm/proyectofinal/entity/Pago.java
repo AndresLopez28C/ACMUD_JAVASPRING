@@ -20,7 +20,7 @@ public class Pago {
     private String tipo;
     private String fecha;
     private String estado;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "factura_id")
     private Factura factura;
     @ManyToOne
